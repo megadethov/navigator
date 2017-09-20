@@ -20,7 +20,7 @@
 
     <build>
         <finalName>navigator</finalName>
-        <defaultGoal>packaging</defaultGoal>
+        <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -35,6 +35,13 @@
     </build>
 
     <dependencies>
+        <!--Web-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

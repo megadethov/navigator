@@ -4,6 +4,6 @@
     <title>Customers</title>
 </head>
 <body>
-<h2>Customers</h2>>
+<h2>Customers</h2>
 </body>
 </html>
