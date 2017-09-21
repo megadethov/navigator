@@ -1,11 +1,13 @@
 package ua.mega.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ua.mega.dao.CustomerDao;
 import ua.mega.model.Customer;
 
 import java.util.List;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
