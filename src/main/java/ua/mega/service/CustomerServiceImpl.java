@@ -9,23 +9,31 @@ public class CustomerServiceImpl implements CustomerService {
 
     private CustomerDao dao;
 
-    @Override
-    public void createNewCustomer(Customer customer) {
+    public CustomerDao getDao() {
+        return dao;
+    }
 
+    public void setDao(CustomerDao dao) {
+        this.dao = dao;
     }
 
     @Override
-    public void getCustomer(int id) {
+    public void createNewCustomer(Customer customer) {
+        dao.create(customer);
+    }
 
+    @Override
+    public Customer getCustomer(int id) {
+       return dao.get(id);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        return null;
+        return dao.getAll();
     }
 
     @Override
     public void deleteCustomer(int id) {
-
+        dao.delete(id);
     }
 }

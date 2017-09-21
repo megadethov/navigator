@@ -1,11 +1,20 @@
 package ua.mega;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ua.mega.model.Customer;
+import ua.mega.service.CustomerService;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Logger LOG = LoggerFactory.getLogger(Main.class);
-        LOG.info("Test logging");
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("spring/spring-app.xml");
+
+        CustomerService customerService = container.getBean(CustomerService.class);
+
+        Customer customer = customerService.getCustomer(1);
+        List<Customer> allCustomers = customerService.getAllCustomers();
+
+        container.close();
     }
 }

@@ -5,4 +5,8 @@
 
     <bean id="customerDao" class="ua.mega.dao.CustomerDaoMockImpl"/>
 
+    <bean id="customerService" class="ua.mega.service.CustomerServiceImpl">
+        <property name="dao" ref="customerDao"/>
+    </bean>
+
 </beans>
