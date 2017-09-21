@@ -31,6 +31,7 @@ public class Customer {
         this.phone = phone;
     }
 
+    // TODO: 21.09.17 - Delete constructor for id
     public Customer(int id, String name, String patronymic, String surname, Phone phone) {
         this.id = id;
         this.name = name;
