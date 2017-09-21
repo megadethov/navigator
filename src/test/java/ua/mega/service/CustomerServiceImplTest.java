@@ -10,7 +10,7 @@ import ua.mega.model.Customer;
 
 import static org.junit.Assert.fail;
 
-@ContextConfiguration("classpath:spring/spring-app.xml")
+@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/spring-db.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class CustomerServiceImplTest {
 
