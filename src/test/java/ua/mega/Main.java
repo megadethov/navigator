@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("spring/spring-app.xml");
 
         CustomerService customerService = container.getBean(CustomerService.class);
         PhoneService phoneService = container.getBean(PhoneService.class);
