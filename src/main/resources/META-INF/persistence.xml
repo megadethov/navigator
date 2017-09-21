@@ -17,8 +17,8 @@
 
             <!--  tweak these to your own needs -->
             <property name="hibernate.show_sql" value="true"/>
-            <!--<property name="hibernate.format_sql" value="true"/>-->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
 
     </persistence-unit>

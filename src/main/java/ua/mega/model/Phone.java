@@ -11,7 +11,10 @@ public class Phone {
 
     @Column(unique=true, nullable=false)
     private String number;
+
+    @Enumerated(EnumType.STRING)
     private PhoneType phoneType;
+
     private String description;
 
     public Phone() {

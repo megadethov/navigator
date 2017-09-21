@@ -1,6 +1,8 @@
 package ua.mega;
 
 import ua.mega.model.Customer;
+import ua.mega.model.Phone;
+import ua.mega.model.PhoneType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,7 +16,8 @@ public class MainJpa {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Customer customer = new Customer("name1", "patronymic1", "surname");
+        Phone phone = new Phone("111-11-111-11", PhoneType.HOME, "lalala");
+        Customer customer = new Customer("name1", "patronymic1", "surname", phone);
         em.persist(customer);
 
         tx.commit();
