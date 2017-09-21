@@ -1,15 +1,15 @@
 package ua.mega.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Phone {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(unique=true, nullable=false)
     private String number;
     private PhoneType phoneType;
     private String description;
@@ -64,5 +64,20 @@ public class Phone {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Phone phone = (Phone) o;
+
+        return number != null ? number.equals(phone.number) : phone.number == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return number != null ? number.hashCode() : 0;
     }
 }

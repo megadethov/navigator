@@ -1,18 +1,18 @@
 package ua.mega.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String patronymic;
     private String surname;
+
+    @OneToOne
     private Phone phone;
 
     public Customer() {
@@ -87,5 +87,23 @@ public class Customer {
                 ", surname='" + surname + '\'' +
                 ", phone=" + phone +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (surname != null ? !surname.equals(customer.surname) : customer.surname != null) return false;
+        return phone != null ? phone.equals(customer.phone) : customer.phone == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = surname != null ? surname.hashCode() : 0;
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        return result;
     }
 }
