@@ -1,6 +1,7 @@
 package ua.mega.model;
 
 public class Customer {
+    private int id;
     private String name;
     private String patronymic;
     private String surname;
@@ -20,6 +21,22 @@ public class Customer {
         this.patronymic = patronymic;
         this.surname = surname;
         this.phone = phone;
+    }
+
+    public Customer(int id, String name, String patronymic, String surname, Phone phone) {
+        this.id = id;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.surname = surname;
+        this.phone = phone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
