@@ -16,9 +16,9 @@ public class CustomerDaoMockImpl implements CustomerDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(CustomerDaoMockImpl.class);
 
-    private Customer customer1 = new Customer(1, "Name-1", "Patronymic-1", "Surname-1", new Phone());
-    private Customer customer2 = new Customer(2, "Name-2", "Patronymic-2", "Surname-2", new Phone());
-    private Customer customer3 = new Customer(3, "Name-3", "Patronymic-3", "Surname-3", new Phone());
+    private Customer customer1 = new Customer("Name-1", "Patronymic-1", "Surname-1", new Phone());
+    private Customer customer2 = new Customer("Name-2", "Patronymic-2", "Surname-2", new Phone());
+    private Customer customer3 = new Customer("Name-3", "Patronymic-3", "Surname-3", new Phone());
     private ArrayList<Customer> customers = new ArrayList<>();
 
     @Override

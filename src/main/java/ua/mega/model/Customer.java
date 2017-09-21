@@ -1,5 +1,7 @@
 package ua.mega.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +14,7 @@ public class Customer {
     private String patronymic;
     private String surname;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private Phone phone;
 
     public Customer() {
@@ -25,15 +27,6 @@ public class Customer {
     }
 
     public Customer(String name, String patronymic, String surname, Phone phone) {
-        this.name = name;
-        this.patronymic = patronymic;
-        this.surname = surname;
-        this.phone = phone;
-    }
-
-    // TODO: 21.09.17 - Delete constructor for id
-    public Customer(int id, String name, String patronymic, String surname, Phone phone) {
-        this.id = id;
         this.name = name;
         this.patronymic = patronymic;
         this.surname = surname;

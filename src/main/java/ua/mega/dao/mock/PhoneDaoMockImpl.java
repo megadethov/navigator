@@ -16,9 +16,9 @@ public class PhoneDaoMockImpl implements PhoneDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(PhoneDaoMockImpl.class);
 
-    private Phone phone1 = new Phone(1, "050-050-55-55", PhoneType.MOBILE, "vodafone");
-    private Phone phone2 = new Phone(2, "060-66-66", PhoneType.HOME, "my");
-    private Phone phone3 = new Phone(3, "093-0750-77-77", PhoneType.MOBILE, "life");
+    private Phone phone1 = new Phone("050-050-55-55", PhoneType.MOBILE, "vodafone");
+    private Phone phone2 = new Phone("060-66-66", PhoneType.HOME, "my");
+    private Phone phone3 = new Phone("093-0750-77-77", PhoneType.MOBILE, "life");
     private ArrayList<Phone> phones = new ArrayList<>();
 
     @Override
