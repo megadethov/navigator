@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="customerDao" class="ua.mega.dao.CustomerDaoMockImpl"/>
+    <bean id="customerDao" class="ua.mega.dao.mock.CustomerDaoMockImpl"/>
 
     <bean id="customerService" class="ua.mega.service.CustomerServiceImpl">
         <property name="dao" ref="customerDao"/>
