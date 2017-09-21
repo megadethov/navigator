@@ -1,5 +1,6 @@
 package ua.mega.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.mega.dao.PhoneDao;
 import ua.mega.model.Customer;
 import ua.mega.model.Phone;
@@ -8,15 +9,8 @@ import java.util.List;
 
 public class PhoneServiceImpl implements PhoneService {
 
+    @Autowired
     private PhoneDao dao;
-
-    public PhoneDao getDao() {
-        return dao;
-    }
-
-    public void setDao(PhoneDao dao) {
-        this.dao = dao;
-    }
 
     @Override
     public void createNewPhone(Phone phone) {

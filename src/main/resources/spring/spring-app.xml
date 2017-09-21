@@ -3,16 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--DAO-->
     <bean id="customerDao" class="ua.mega.dao.mock.CustomerDaoMockImpl"/>
-
-    <bean id="customerService" class="ua.mega.service.CustomerServiceImpl">
-        <property name="dao" ref="customerDao"/>
-    </bean>
-
     <bean id="phoneDao" class="ua.mega.dao.mock.PhoneDaoMockImpl"/>
 
-    <bean id="phoneService" class="ua.mega.service.PhoneServiceImpl">
-        <property name="dao" ref="phoneDao"/>
-    </bean>
+    <!--Service-->
+    <bean id="customerService" class="ua.mega.service.CustomerServiceImpl"/>
+    <bean id="phoneService" class="ua.mega.service.PhoneServiceImpl"/>
 
 </beans>

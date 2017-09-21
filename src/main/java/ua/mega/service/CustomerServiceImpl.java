@@ -1,5 +1,6 @@
 package ua.mega.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.mega.dao.CustomerDao;
 import ua.mega.model.Customer;
 
@@ -7,15 +8,8 @@ import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
 
+    @Autowired
     private CustomerDao dao;
-
-    public CustomerDao getDao() {
-        return dao;
-    }
-
-    public void setDao(CustomerDao dao) {
-        this.dao = dao;
-    }
 
     @Override
     public void createNewCustomer(Customer customer) {
