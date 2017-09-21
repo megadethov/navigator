@@ -9,4 +9,10 @@
         <property name="dao" ref="customerDao"/>
     </bean>
 
+    <bean id="phoneDao" class="ua.mega.dao.mock.PhoneDaoMockImpl"/>
+
+    <bean id="phoneService" class="ua.mega.service.PhoneServiceImpl">
+        <property name="dao" ref="phoneDao"/>
+    </bean>
+
 </beans>
