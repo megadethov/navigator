@@ -19,8 +19,9 @@ public class CustomerDaoMockImpl implements CustomerDao {
     private ArrayList<Customer> customers = new ArrayList<>();
 
     @Override
-    public void create() {
+    public void create(Customer customer) {
         LOG.debug("Create new Customer");
+        customers.add(customer);
     }
 
     @Override
