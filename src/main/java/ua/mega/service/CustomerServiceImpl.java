@@ -17,12 +17,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer createNewCustomer(Customer customer) {
-      return dao.create(customer);
+        return dao.create(customer);
     }
 
     @Override
     public Customer getCustomer(int id) {
-       return dao.get(id);
+        return dao.get(id);
     }
 
     @Override

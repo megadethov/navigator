@@ -9,7 +9,7 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(unique=true, nullable=false)
+    @Column(unique = true, nullable = false)
     private String number;
 
     @Enumerated(EnumType.STRING)
