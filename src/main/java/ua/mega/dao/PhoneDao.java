@@ -15,4 +15,5 @@ public interface PhoneDao {
 
     void delete(int id);
 
+    void update(Phone phone);
 }

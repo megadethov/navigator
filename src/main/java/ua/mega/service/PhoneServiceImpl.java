@@ -35,4 +35,9 @@ public class PhoneServiceImpl implements PhoneService {
     public void deletePhone(int id) {
         dao.delete(id);
     }
+
+    @Override
+    public void updatePhone(Phone phone) {
+        dao.update(phone);
+    }
 }

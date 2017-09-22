@@ -36,7 +36,7 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     @Override
     public List<Customer> getAll() {
         LOG.debug("Get all customers");
-        Query q = em.createQuery("from Customer");
+        Query q = em.createQuery("select customer from Customer as customer");
         return q.getResultList();
     }
 

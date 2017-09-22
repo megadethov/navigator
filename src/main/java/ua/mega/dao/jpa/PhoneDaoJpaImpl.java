@@ -38,7 +38,7 @@ public class PhoneDaoJpaImpl implements PhoneDao {
 
     @Override
     public List<Phone> getAll() {
-        Query q = em.createQuery("from Phone");
+        Query q = em.createQuery("select phone from Phone as phone");
         LOG.debug("Get All Phones");
         return q.getResultList();
     }
@@ -48,5 +48,11 @@ public class PhoneDaoJpaImpl implements PhoneDao {
         Phone phoneForDelete = em.find(Phone.class, id);
         em.remove(phoneForDelete);
         LOG.debug("Phone delete");
+    }
+
+    @Override
+    public void update(Phone phone) {
+        em.merge(phone);
+        LOG.debug("Phone update");
     }
 }

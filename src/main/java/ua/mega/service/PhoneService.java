@@ -14,4 +14,6 @@ public interface PhoneService {
     List<Phone> getAllPhones();
 
     void deletePhone(int id);
+
+    void updatePhone(Phone phone);
 }

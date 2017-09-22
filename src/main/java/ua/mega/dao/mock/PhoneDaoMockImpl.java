@@ -47,4 +47,9 @@ public class PhoneDaoMockImpl implements PhoneDao {
     public void delete(int id) {
         LOG.debug("Delete phone");
     }
+
+    @Override
+    public void update(Phone phone) {
+        LOG.debug("Update phone");
+    }
 }

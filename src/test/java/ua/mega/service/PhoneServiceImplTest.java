@@ -46,4 +46,12 @@ public class PhoneServiceImplTest {
     public void deletePhone() throws Exception {
         phoneService.deletePhone(2);
     }
+
+    @Test
+    public void updatePhone() throws Exception {
+        Phone phone = phoneService.getPhone(1);
+        phone.setPhoneType(PhoneType.UNDEFINED);
+
+        phoneService.updatePhone(phone);
+    }
 }
