@@ -27,17 +27,28 @@ public class CustomerServiceImplTest {
 
     @Test
     public void getCustomer() throws Exception {
+        populateDB();
         service.getCustomer(1);
     }
 
     @Test
     public void getAllCustomers() throws Exception {
+        populateDB();
         service.getAllCustomers();
     }
 
     @Test
     public void deleteCustomer() throws Exception {
-        service.deleteCustomer(1);
+        populateDB();
+        service.deleteCustomer(2);
+    }
+
+    public void populateDB() {
+        service.createNewCustomer(new Customer("Name-1", "Patronymic-1", "Surname-1"));
+        service.createNewCustomer(new Customer("Name-5", "Patronymic-5", "Surname-5"));
+        service.createNewCustomer(new Customer("Name-3", "Patronymic-3", "Surname-3"));
+        service.createNewCustomer(new Customer("Name-4", "Patronymic-4", "Surname-4"));
+        service.createNewCustomer(new Customer("Name-2", "Patronymic-2", "Surname-2"));
     }
 
 }

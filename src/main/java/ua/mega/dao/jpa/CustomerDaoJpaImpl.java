@@ -3,7 +3,6 @@ package ua.mega.dao.jpa;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ua.mega.dao.CustomerDao;
 import ua.mega.dao.mock.CustomerDaoMockImpl;
 import ua.mega.model.Customer;
@@ -22,15 +21,16 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     private EntityManager em;
 
     @Override
-    public void create(Customer customer) {
+    public Customer create(Customer customer) {
         LOG.debug("Create customer");
         em.persist(customer);
+        return customer;
     }
 
     @Override
     public Customer get(int id) {
         LOG.debug("Get customer");
-        return null;
+        return em.find(Customer.class, 1);
     }
 
     @Override
@@ -43,5 +43,7 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     @Override
     public void delete(int id) {
         LOG.debug("Delete customer");
+        Customer customerForDelete = em.find(Customer.class, id);
+        em.remove(customerForDelete);
     }
 }
