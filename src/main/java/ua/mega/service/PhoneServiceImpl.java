@@ -27,11 +27,6 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
-    public Phone getPhoneByCustomer(Customer customer) {
-        return dao.getByCustomer(customer);
-    }
-
-    @Override
     public List<Phone> getAllPhones() {
         return dao.getAll();
     }

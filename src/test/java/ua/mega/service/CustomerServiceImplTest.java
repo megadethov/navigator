@@ -1,17 +1,12 @@
 package ua.mega.service;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.model.Customer;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @ContextConfiguration({"classpath:spring/spring-app.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)

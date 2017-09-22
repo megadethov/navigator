@@ -11,8 +11,6 @@ public interface PhoneService {
 
     Phone getPhone(int id);
 
-    Phone getPhoneByCustomer(Customer customer);
-
     List<Phone> getAllPhones();
 
     void deletePhone(int id);

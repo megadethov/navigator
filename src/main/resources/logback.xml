@@ -26,6 +26,8 @@
 
     <logger name="ua.mega" level="DEBUG"/>
 
+    <!--<logger name="org.hibernate.type" level="TRACE" />-->
+
     <root level="INFO">
         <appender-ref ref="file"/>
         <appender-ref ref="console"/>

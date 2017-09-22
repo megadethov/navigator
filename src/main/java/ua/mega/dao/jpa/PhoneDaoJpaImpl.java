@@ -24,27 +24,29 @@ public class PhoneDaoJpaImpl implements PhoneDao {
 
 
     @Override
-    public void create(Phone phone) {
-
+    public Phone create(Phone phone) {
+        em.persist(phone);
+        LOG.debug("Create Phone {id = " + phone.getId() + "}");
+        return phone;
     }
 
     @Override
     public Phone get(int id) {
-        return null;
-    }
-
-    @Override
-    public Phone getByCustomer(Customer customer) {
-        return null;
+        LOG.debug("Get Phone");
+        return em.find(Phone.class, id);
     }
 
     @Override
     public List<Phone> getAll() {
-        return null;
+        Query q = em.createQuery("from Phone");
+        LOG.debug("Get All Phones");
+        return q.getResultList();
     }
 
     @Override
     public void delete(int id) {
-
+        Phone phoneForDelete = em.find(Phone.class, id);
+        em.remove(phoneForDelete);
+        LOG.debug("Phone delete");
     }
 }

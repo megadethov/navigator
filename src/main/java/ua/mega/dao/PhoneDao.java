@@ -7,11 +7,9 @@ import java.util.List;
 
 public interface PhoneDao {
 
-    void create(Phone phone);
+    Phone create(Phone phone);
 
     Phone get(int id);
-
-    Phone getByCustomer(Customer customer);
 
     List<Phone> getAll();
 
