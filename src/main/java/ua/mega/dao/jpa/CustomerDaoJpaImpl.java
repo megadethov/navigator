@@ -21,21 +21,18 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     @PersistenceContext
     private EntityManager em;
 
-    @Transactional
     @Override
     public void create(Customer customer) {
         LOG.debug("Create customer");
         em.persist(customer);
     }
 
-    @Transactional
     @Override
     public Customer get(int id) {
         LOG.debug("Get customer");
         return null;
     }
 
-    @Transactional
     @Override
     public List<Customer> getAll() {
         LOG.debug("Get all customers");
@@ -43,7 +40,6 @@ public class CustomerDaoJpaImpl implements CustomerDao {
         return q.getResultList();
     }
 
-    @Transactional
     @Override
     public void delete(int id) {
         LOG.debug("Delete customer");

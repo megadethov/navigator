@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Sep 22 09:33:46 EEST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015e-a84a-b5d8-0000034acab8 
+Fri Sep 22 10:14:40 EEST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015e-a870-31ba-000003490180 
 on database directory /home/mega/soft/derby/bin/navigator with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/home/mega/soft/maven-repo/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
 java.vendor=Oracle Corporation

@@ -8,6 +8,7 @@ import ua.mega.model.Customer;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
