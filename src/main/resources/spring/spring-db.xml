@@ -7,6 +7,10 @@
 
     <context:property-placeholder location="classpath:db/derby.properties" system-properties-mode="OVERRIDE"/>
 
+    <bean class="ua.mega.util.DbPopulator">
+        <constructor-arg name="scriptLocation" value="classpath:db/populateDB.sql"/>
+    </bean>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${database.driverClassName}" />
         <property name="url" value="${database.url}" />
