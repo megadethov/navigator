@@ -9,16 +9,16 @@ import ua.mega.model.Phone;
 
 import java.util.List;
 
-@Transactional
 @Service
+@Transactional
 public class PhoneServiceImpl implements PhoneService {
 
     @Autowired
     private PhoneDao dao;
 
     @Override
-    public void createNewPhone(Phone phone) {
-        dao.create(phone);
+    public Phone createNewPhone(Phone phone) {
+       return dao.create(phone);
     }
 
     @Override

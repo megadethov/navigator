@@ -8,8 +8,8 @@ import ua.mega.model.Customer;
 
 import java.util.List;
 
-@Transactional
 @Service
+@Transactional
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired

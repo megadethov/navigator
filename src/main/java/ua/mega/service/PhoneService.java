@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PhoneService {
 
-    void createNewPhone(Phone phone);
+    Phone createNewPhone(Phone phone);
 
     Phone getPhone(int id);
 
