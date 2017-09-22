@@ -14,10 +14,11 @@ public class Main {
         CustomerService customerService = container.getBean(CustomerService.class);
         PhoneService phoneService = container.getBean(PhoneService.class);
 
-        Customer customer = customerService.getCustomer(1);
         List<Customer> allCustomers = customerService.getAllCustomers();
 
-        phoneService.getAllPhones();
+        for (Customer next : allCustomers) {
+            System.out.println(next.toString());
+        }
 
         container.close();
     }
