@@ -6,6 +6,6 @@ target
 *.iml
 atlassian-ide-plugin.xml
 log
-
+.log
 
 
