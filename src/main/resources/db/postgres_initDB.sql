@@ -5,7 +5,7 @@ CREATE TABLE PHONE
 (
   ID          SERIAL PRIMARY KEY,
   description VARCHAR,
-  number      VARCHAR,
+  number      VARCHAR NOT NULL UNIQUE,
   phone_type   VARCHAR
 );
 

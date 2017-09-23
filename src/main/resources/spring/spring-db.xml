@@ -21,7 +21,7 @@
     <!--Main persistence xml configurations-->
     <bean id="emfBeanMain" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSourceMain"/>
-        <property name="persistenceUnitName" value="derby"/>
+        <property name="persistenceUnitName" value="postgres"/>
         <property name="packagesToScan">
             <list>
                 <value>ua.mega.**.model</value>

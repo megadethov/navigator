@@ -6,9 +6,10 @@
 
     <!--Database-->
 
-    <!--<import resource="spring-db.xml"/> &lt;!&ndash;Main Datasource&ndash;&gt;-->
-    <import resource="spring-db-test.xml"/> <!--TEST Datasource-->
-
+    <!--Main Datasource-->
+    <import resource="spring-db.xml"/>
+    <!--TEST Datasource-->
+    <!--<import resource="spring-db-test.xml"/> -->
 
     <context:component-scan base-package="ua.mega.service"/>
 
