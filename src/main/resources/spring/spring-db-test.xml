@@ -8,19 +8,23 @@
     <!--<context:component-scan base-package="ua.mega.**.mock"/>-->
     <context:component-scan base-package="ua.mega.**.jpa"/>
 
-    <!--dataSource Main-->
-    <context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>
+    <!--dataSource Test-->
+    <context:property-placeholder location="classpath:db/derby.properties" system-properties-mode="OVERRIDE"/>
 
-    <bean id="dataSourceMain" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean class="ua.mega.util.DbPopulator">
+        <constructor-arg name="scriptLocation" value="classpath:db/populateDB.sql"/>
+    </bean>
+
+    <bean id="dataSourceTest" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${database.driverClassName}"/>
         <property name="url" value="${database.url}"/>
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
     </bean>
 
-    <!--Main persistence xml configurations-->
-    <bean id="emfBeanMain" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSourceMain"/>
+    <!--Test persistence xml configurations-->
+    <bean id="emfBeanTest" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSourceTest"/>
         <property name="persistenceUnitName" value="derby"/>
         <property name="packagesToScan">
             <list>
@@ -42,7 +46,7 @@
 
     <!--Transaction-->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emfBeanMain"/>
+        <property name="entityManagerFactory" ref="emfBeanTest"/>
     </bean>
 
     <tx:annotation-driven/>
