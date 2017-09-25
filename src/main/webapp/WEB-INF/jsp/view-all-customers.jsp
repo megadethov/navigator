@@ -25,6 +25,8 @@
     </ul>
 </div>
 
+<a href="addCustomerForm">Add New Customer</a>
+
 <%--<jsp:include page="/footer.jsp"/>--%>
 
 </body>
