@@ -9,7 +9,7 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String number;
 
 
@@ -71,11 +71,18 @@ public class Phone {
 
         Phone phone = (Phone) o;
 
-        return number != null ? number.equals(phone.number) : phone.number == null;
+        if (id != phone.id) return false;
+        if (number != null ? !number.equals(phone.number) : phone.number != null) return false;
+        if (phoneType != phone.phoneType) return false;
+        return description != null ? description.equals(phone.description) : phone.description == null;
     }
 
     @Override
     public int hashCode() {
-        return number != null ? number.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (number != null ? number.hashCode() : 0);
+        result = 31 * result + (phoneType != null ? phoneType.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
     }
 }
