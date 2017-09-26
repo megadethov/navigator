@@ -21,7 +21,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#customers").dataTable({
-                "sPaginationType": "full_numbers",
+                "bPaginate": false,
                 "bJQueryUI": true
             });
         });
