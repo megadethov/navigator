@@ -15,7 +15,13 @@ $(function () {
     $('.edit').focus(function () {
         oldVal = $(this).text();
         id = $(this).data('id');
-        console.log(oldVal + " - " + id);
+    }).blur(function () {
+        newVal = $(this).text();
+        if(oldVal != newVal) {
+            console.log("Send AXAX");
+        } else {
+            console.log("Noting change");
+        }
     });
 
 });
