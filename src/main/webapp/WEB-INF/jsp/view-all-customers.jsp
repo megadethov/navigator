@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>All Customers</title>
-
+    <link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>" type="text/css" />
 
     <link rel="stylesheet" href="<spring:url value="/resources/media/dataTables/demo_page.css"/>" type="text/css" />
     <link rel="stylesheet" href="<spring:url value="/resources/media/dataTables/demo_table.css"/>" type="text/css" />
@@ -39,6 +39,7 @@
             <th>NAME</th>
             <th>PATRONYMIC</th>
             <th>SURNAME</th>
+            <th>PHONE ID</th>
             <th>PHONE NUMBER</th>
             <th>PHONE TYPE</th>
             <th>PHONE DESCRIPTION</th>
@@ -51,9 +52,10 @@
                 <td>${next.name}</td>
                 <td>${next.patronymic}</td>
                 <td>${next.surname}</td>
-                <td>${next.phone.number}</td>
-                <td>${next.phone.phoneType}</td>
-                <td>${next.phone.description}</td>
+                <td>${next.phone.id}</td>
+                <td class="edit" contenteditable="true">${next.phone.number}</td>
+                <td class="edit" contenteditable="true">${next.phone.phoneType}</td>
+                <td class="edit" contenteditable="true">${next.phone.description}</td>
             </tr>
         </c:forEach>
         </tbody>
