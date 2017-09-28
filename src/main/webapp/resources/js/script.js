@@ -19,8 +19,8 @@ $(function () {
         newVal = $(this).text();
         if(oldVal != newVal) {
             $.ajax({
-                url: '/customer/updateAgax',
-                type: 'POST',
+                url: 'updateAgax',
+                type: 'GET',
                 data: {new_val: newVal, id: id},
                 success: function (res) {
                     console.log(res);
