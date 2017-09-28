@@ -55,9 +55,9 @@
                 <td>${next.patronymic}</td>
                 <td>${next.surname}</td>
                 <td>${next.phone.id}</td>
-                <td class="edit" contenteditable="true">${next.phone.number}</td>
-                <td class="edit" contenteditable="true">${next.phone.phoneType}</td>
-                <td class="edit" contenteditable="true">${next.phone.description}</td>
+                <td class="edit" data-id="${next.phone.id}" contenteditable="true">${next.phone.number}</td>
+                <td class="edit" data-id="${next.phone.id}" contenteditable="true">${next.phone.phoneType}</td>
+                <td class="edit" data-id="${next.phone.id}" contenteditable="true">${next.phone.description}</td>
             </tr>
         </c:forEach>
         </tbody>
