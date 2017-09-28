@@ -34,9 +34,18 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/updateAgax", method = RequestMethod.GET)
-    public @ResponseBody String updateAjax(@RequestParam String new_val, @RequestParam int id) {
+    public @ResponseBody String updateAjax(@RequestParam String new_val, @RequestParam int id, @RequestParam String field) {
         Phone phone = phoneService.getPhone(id);
-        phone.setDescription(new_val);
+        switch (field) {
+            case "number":
+                phone.setNumber(new_val);
+                break;
+            case "phoneType":
+                phone.setPhoneType(Enum.valueOf(PhoneType.class, new_val));
+                break;
+            case "description":
+                phone.setDescription(new_val);
+        }
         phoneService.updatePhone(phone);
 
         return "=== UPDATED ===";
