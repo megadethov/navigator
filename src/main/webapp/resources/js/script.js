@@ -20,26 +20,28 @@ $(function () {
     }).blur(function () {
         newVal = $(this).text();
         if(oldVal != newVal) {
-            $.ajax({
-                url: 'updateAgax',
-                type: 'GET',
-                data: {new_val: newVal, id: id, field: field},
-                success: function (res) {
-                    console.log(res);
-                },
-                error: function () {
-                    alert('AJAX ERROR !');
-                }
-            });
+            let toPush = {"id": id, "field": field, "newVal": newVal};
+            arr.push(toPush);
         }
     });
 
 
 
 
-    // $('#update').click(function () {
-    //
-    // })
+    $('#update').click(function () {
+        $.ajax({
+            url: 'updateAgax',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(arr),
+            success: function (res) {
+                console.log(res);
+            },
+            error: function () {
+                alert('AJAX ERROR !');
+            }
+        });
+    })
 
 
 });
