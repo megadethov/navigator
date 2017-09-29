@@ -35,7 +35,7 @@ public class CustomerServiceImplTest {
 
     @Test
     public void getCustomer() throws Exception {
-        customerService.getCustomer(1);
+        customerService.getCustomer(10001);
     }
 
     @Test
@@ -45,6 +45,6 @@ public class CustomerServiceImplTest {
 
     @Test
     public void deleteCustomer() throws Exception {
-        customerService.deleteCustomer(2);
+        customerService.deleteCustomer(10002);
     }
 }

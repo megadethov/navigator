@@ -1,6 +1,7 @@
 package ua.mega.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
@@ -12,6 +13,7 @@ public class DbPopulator extends ResourceDatabasePopulator {
     private static final ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader();
 
     @Autowired
+    @Qualifier("dataSourceTest")
     private DataSource dataSource;
 
     public DbPopulator(String scriptLocation) {

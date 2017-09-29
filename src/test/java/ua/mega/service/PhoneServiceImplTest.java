@@ -34,7 +34,7 @@ public class PhoneServiceImplTest {
 
     @Test
     public void getPhone() throws Exception {
-        phoneService.getPhone(1);
+        phoneService.getPhone(10001);
     }
 
     @Test
@@ -44,12 +44,12 @@ public class PhoneServiceImplTest {
 
     @Test
     public void deletePhone() throws Exception {
-        phoneService.deletePhone(2);
+        phoneService.deletePhone(10002);
     }
 
     @Test
     public void updatePhone() throws Exception {
-        Phone phone = phoneService.getPhone(1);
+        Phone phone = phoneService.getPhone(10001);
         phone.setPhoneType(PhoneType.UNDEFINED);
 
         phoneService.updatePhone(phone);
