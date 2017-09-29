@@ -35,12 +35,20 @@ $(function () {
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(arr),
+                beforeSend: function(){
+                    $('#loader').fadeIn();
+                },
                 success: function (res) {
-                    console.log(res);
+                    $('#mes-edit').text(res).delay(500).fadeIn(1000, function(){
+                        $('#mes-edit').delay(1000).fadeOut();
+                    });
                     arr = [];
                 },
                 error: function () {
                     alert('AJAX ERROR !');
+                },
+                complete: function(){
+                    $('#loader').delay(500).fadeOut();
                 }
             });
         }

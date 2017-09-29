@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="<spring:url value="/resources/media/themes/smoothness/jquery-ui-1.7.2.custom.css"/>"
           type="text/css" media="all"/>
 
-    <script src="<spring:url value="/resources/js/jquery-1.4.4.min.js"/>" type="text/javascript"></script>
+    <%--<script src="<spring:url value="/resources/js/jquery-1.4.4.min.js"/>" type="text/javascript"></script>--%>
+    <script src="<spring:url value="http://code.jquery.com/jquery-latest.js"/>" type="text/javascript"></script>
     <script src="<spring:url value="/resources/js/jquery.dataTables.min.js"/>" type="text/javascript"></script>
 
     <script src="<spring:url value="/resources/js/script.js"/>" type="text/javascript"></script>
@@ -74,6 +75,11 @@
     <div align="center">
         <input id="update" type="button" value="SAVE CHANGE" style="color: #cd0a0a"/>
     </div>
+
+    <%--Loader--%>
+    <div id="loader"><span></span></div>
+    <div id="mes-edit"></div>
+
 </div>
 
 <%--<jsp:include page="/footer.jsp"/>--%>
