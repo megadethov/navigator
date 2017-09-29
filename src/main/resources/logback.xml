@@ -9,7 +9,7 @@
     <jmxConfigurator/>
 
     <appender name="file" class="ch.qos.logback.core.FileAppender">
-        <file>log/navigator.log</file>
+        <file>/home/mega/java/projects/navigator/log/navigator.log</file>
 
         <encoder>
             <charset>UTF-8</charset>

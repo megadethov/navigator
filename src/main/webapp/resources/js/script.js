@@ -29,18 +29,21 @@ $(function () {
 
 
     $('#update').click(function () {
-        $.ajax({
-            url: 'updateAgax',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(arr),
-            success: function (res) {
-                console.log(res);
-            },
-            error: function () {
-                alert('AJAX ERROR !');
-            }
-        });
+        if(arr.length != 0) {
+            $.ajax({
+                url: 'updateAgax',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(arr),
+                success: function (res) {
+                    console.log(res);
+                    arr = [];
+                },
+                error: function () {
+                    alert('AJAX ERROR !');
+                }
+            });
+        }
     })
 
 

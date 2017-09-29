@@ -1,10 +1,13 @@
 package ua.mega.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import ua.mega.dao.mock.CustomerDaoMockImpl;
 import ua.mega.model.Customer;
 import ua.mega.model.Phone;
 import ua.mega.model.PhoneType;
@@ -17,6 +20,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 
     @Autowired
     private CustomerService customerService;
@@ -39,12 +44,15 @@ public class CustomerController {
             switch (next.getField()) {
                 case "number":
                     phone.setNumber(next.getNewVal());
+                    LOG.debug(next.getId() + " phone.setNumber - " + next.getNewVal());
                     break;
                 case "phoneType":
                     phone.setPhoneType(Enum.valueOf(PhoneType.class, next.getNewVal()));
+                    LOG.debug(next.getId() + " phone.setPhoneType - " + next.getNewVal());
                     break;
                 case "description":
                     phone.setDescription(next.getNewVal());
+                    LOG.debug(next.getId() + " phone.setDescription - " + next.getNewVal());
             }
             phoneService.updatePhone(phone);
         }
