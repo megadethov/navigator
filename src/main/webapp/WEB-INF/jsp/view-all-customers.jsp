@@ -39,11 +39,11 @@
     <table id="customers" class="display">
         <thead>
         <tr>
-            <th>ID</th>
+            <th hidden>ID</th>
             <th>NAME</th>
             <th>PATRONYMIC</th>
             <th>SURNAME</th>
-            <th>PHONE ID</th>
+            <th hidden>PHONE ID</th>
             <th>PHONE NUMBER</th>
             <th>PHONE TYPE</th>
             <th>PHONE DESCRIPTION</th>
@@ -53,11 +53,11 @@
         <tbody>
         <c:forEach items="${allCustomers}" var="next">
             <tr>
-                <td>${next.id}</td>
+                <td hidden>${next.id}</td>
                 <td>${next.name}</td>
                 <td>${next.patronymic}</td>
                 <td>${next.surname}</td>
-                <td>${next.phone.id}</td>
+                <td hidden>${next.phone.id}</td>
                 <td class="edit" data-id="${next.phone.id}" data-name="number"
                     contenteditable="true">${next.phone.number}</td>
 
