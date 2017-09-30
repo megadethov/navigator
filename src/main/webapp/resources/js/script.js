@@ -27,7 +27,6 @@ $(function () {
 
 
 
-
     $('#update').click(function () {
         if(arr.length != 0) {
             $.ajax({

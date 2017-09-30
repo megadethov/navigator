@@ -37,9 +37,10 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/updateAgax", method = RequestMethod.POST)
-    public @ResponseBody String updateAjax(@RequestBody List<AjaxUpdateMapper> updates) {
+    public @ResponseBody
+    String updateAjax(@RequestBody List<AjaxUpdateMapper> updates) {
 
-        for (AjaxUpdateMapper next: updates) {
+        for (AjaxUpdateMapper next : updates) {
             Phone phone = phoneService.getPhone(Integer.valueOf(next.getId()));
             switch (next.getField()) {
                 case "number":
@@ -47,7 +48,12 @@ public class CustomerController {
                     LOG.debug(next.getId() + " phone.setNumber - " + next.getNewVal());
                     break;
                 case "phoneType":
-                    phone.setPhoneType(Enum.valueOf(PhoneType.class, next.getNewVal()));
+                    String strPhoneType = next.getNewVal().toUpperCase();
+                    if(!strPhoneType.equals("HOME") && !strPhoneType.equals("MOBILE")) {
+                        strPhoneType = "UNDEFINED";
+                    }
+
+                    phone.setPhoneType(Enum.valueOf(PhoneType.class, strPhoneType));
                     LOG.debug(next.getId() + " phone.setPhoneType - " + next.getNewVal());
                     break;
                 case "description":
