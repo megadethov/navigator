@@ -5,7 +5,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name="Customer.getAll", query="select customer from Customer as customer")
+        @NamedQuery(name="Customer.getAll", query="select customer from Customer customer")
 })
 
 @Entity
@@ -19,6 +19,7 @@ public class Customer {
     private String surname;
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "phone_id")
     private Phone phone;
 
     public Customer() {

@@ -17,23 +17,8 @@ public class PhoneServiceImpl implements PhoneService {
     private PhoneDao dao;
 
     @Override
-    public Phone createNewPhone(Phone phone) {
-        return dao.create(phone);
-    }
-
-    @Override
     public Phone getPhone(int id) {
         return dao.get(id);
-    }
-
-    @Override
-    public List<Phone> getAllPhones() {
-        return dao.getAll();
-    }
-
-    @Override
-    public void deletePhone(int id) {
-        dao.delete(id);
     }
 
     @Override

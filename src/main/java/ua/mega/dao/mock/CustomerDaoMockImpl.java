@@ -22,19 +22,6 @@ public class CustomerDaoMockImpl implements CustomerDao {
     private ArrayList<Customer> customers = new ArrayList<>();
 
     @Override
-    public Customer create(Customer customer) {
-        LOG.debug("Create new Customer");
-        customers.add(customer);
-        return customer;
-    }
-
-    @Override
-    public Customer get(int id) {
-        LOG.debug("Get Customer");
-        return customer1;
-    }
-
-    @Override
     public List<Customer> getAll() {
         LOG.debug("Get All Customer");
         customers.add(customer1);
@@ -43,8 +30,4 @@ public class CustomerDaoMockImpl implements CustomerDao {
         return customers;
     }
 
-    @Override
-    public void delete(int id) {
-        LOG.debug("Delete Customer");
-    }
 }

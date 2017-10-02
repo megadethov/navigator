@@ -22,30 +22,9 @@ public class PhoneDaoMockImpl implements PhoneDao {
     private ArrayList<Phone> phones = new ArrayList<>();
 
     @Override
-    public Phone create(Phone phone) {
-        LOG.debug("Create phone");
-        phones.add(phone);
-        return phone;
-    }
-
-    @Override
     public Phone get(int id) {
         LOG.debug("Get phone");
         return phone1;
-    }
-
-    @Override
-    public List<Phone> getAll() {
-        LOG.debug("Get all phones");
-        phones.add(phone1);
-        phones.add(phone2);
-        phones.add(phone3);
-        return phones;
-    }
-
-    @Override
-    public void delete(int id) {
-        LOG.debug("Delete phone");
     }
 
     @Override

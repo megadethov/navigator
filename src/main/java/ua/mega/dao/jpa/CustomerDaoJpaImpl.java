@@ -23,29 +23,9 @@ public class CustomerDaoJpaImpl implements CustomerDao {
     private EntityManager em;
 
     @Override
-    public Customer create(Customer customer) {
-        em.persist(customer);
-        LOG.debug("Create customer");
-        return customer;
-    }
-
-    @Override
-    public Customer get(int id) {
-        LOG.debug("Get customer");
-        return em.find(Customer.class, 1);
-    }
-
-    @Override
     public List<Customer> getAll() {
         TypedQuery<Customer> q = em.createNamedQuery("Customer.getAll", Customer.class);
         LOG.debug("Get all customers");
         return q.getResultList();
-    }
-
-    @Override
-    public void delete(int id) {
-        Customer customerForDelete = em.find(Customer.class, id);
-        LOG.debug("Delete customer");
-        em.remove(customerForDelete);
     }
 }

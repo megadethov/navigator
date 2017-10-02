@@ -29,22 +29,8 @@ public class CustomerServiceImplTest {
     }
 
     @Test
-    public void createNewCustomer() throws Exception {
-        customerService.createNewCustomer(new Customer("Name-6", "Patronymic-6", "Surname-6"));
-    }
-
-    @Test
-    public void getCustomer() throws Exception {
-        customerService.getCustomer(10001);
-    }
-
-    @Test
     public void getAllCustomers() throws Exception {
         customerService.getAllCustomers();
     }
 
-    @Test
-    public void deleteCustomer() throws Exception {
-        customerService.deleteCustomer(10002);
-    }
 }

@@ -6,12 +6,5 @@ import java.util.List;
 
 public interface CustomerDao {
 
-    Customer create(Customer customer);
-
-    Customer get(int id);
-
     List<Customer> getAll();
-
-    void delete(int id);
-
 }

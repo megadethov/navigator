@@ -28,23 +28,8 @@ public class PhoneServiceImplTest {
     }
 
     @Test
-    public void createNewPhone() throws Exception {
-        phoneService.createNewPhone(new Phone("066-666-66-66", PhoneType.HOME, "comment-6"));
-    }
-
-    @Test
     public void getPhone() throws Exception {
         phoneService.getPhone(10001);
-    }
-
-    @Test
-    public void getAllPhones() throws Exception {
-        phoneService.getAllPhones();
-    }
-
-    @Test
-    public void deletePhone() throws Exception {
-        phoneService.deletePhone(10002);
     }
 
     @Test

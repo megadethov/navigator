@@ -21,36 +21,10 @@ public class PhoneDaoJpaImpl implements PhoneDao {
     @PersistenceContext
     private EntityManager em;
 
-
-    @Override
-    public Phone create(Phone phone) {
-        if (phone.getId() == 0) {
-            em.persist(phone);
-        } else {
-            em.merge(phone);
-        }
-        LOG.debug("Create Phone {id = " + phone.getId() + "}");
-        return phone;
-    }
-
     @Override
     public Phone get(int id) {
         LOG.debug("Get Phone");
         return em.find(Phone.class, id);
-    }
-
-    @Override
-    public List<Phone> getAll() {
-        TypedQuery<Phone> q = em.createNamedQuery("Phone.getAll", Phone.class);
-        LOG.debug("Get All Phones");
-        return q.getResultList();
-    }
-
-    @Override
-    public void delete(int id) {
-        Phone phoneForDelete = em.find(Phone.class, id);
-        em.remove(phoneForDelete);
-        LOG.debug("Phone delete");
     }
 
     @Override

@@ -7,13 +7,7 @@ import java.util.List;
 
 public interface PhoneService {
 
-    Phone createNewPhone(Phone phone);
+    void updatePhone(Phone phone);
 
     Phone getPhone(int id);
-
-    List<Phone> getAllPhones();
-
-    void deletePhone(int id);
-
-    void updatePhone(Phone phone);
 }
