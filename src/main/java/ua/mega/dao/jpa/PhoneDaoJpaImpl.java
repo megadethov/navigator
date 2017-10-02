@@ -9,12 +9,11 @@ import ua.mega.dao.mock.CustomerDaoMockImpl;
 import ua.mega.model.Customer;
 import ua.mega.model.Phone;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.List;
 
 @Repository
+
 public class PhoneDaoJpaImpl implements PhoneDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(CustomerDaoMockImpl.class);
@@ -25,7 +24,11 @@ public class PhoneDaoJpaImpl implements PhoneDao {
 
     @Override
     public Phone create(Phone phone) {
-        em.persist(phone);
+        if (phone.getId() == 0) {
+            em.persist(phone);
+        } else {
+            em.merge(phone);
+        }
         LOG.debug("Create Phone {id = " + phone.getId() + "}");
         return phone;
     }
@@ -38,7 +41,7 @@ public class PhoneDaoJpaImpl implements PhoneDao {
 
     @Override
     public List<Phone> getAll() {
-        Query q = em.createQuery("select phone from Phone as phone");
+        TypedQuery<Phone> q = em.createNamedQuery("Phone.getAll", Phone.class);
         LOG.debug("Get All Phones");
         return q.getResultList();
     }
@@ -53,6 +56,6 @@ public class PhoneDaoJpaImpl implements PhoneDao {
     @Override
     public void update(Phone phone) {
         em.merge(phone);
-        LOG.debug("Phone update");
+        LOG.debug(phone.getId() + " Phone update");
     }
 }

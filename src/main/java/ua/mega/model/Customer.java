@@ -4,6 +4,10 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name="Customer.getAll", query="select customer from Customer as customer")
+})
+
 @Entity
 public class Customer {
 
