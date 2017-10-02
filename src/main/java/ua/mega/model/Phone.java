@@ -2,10 +2,6 @@ package ua.mega.model;
 
 import javax.persistence.*;
 
-@NamedQueries({
-        @NamedQuery(name="Phone.getAll", query="select phone from Phone as phone")
-})
-
 @Entity
 public class Phone {
 
@@ -26,8 +22,8 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(String number) {
-        this.number = number;
+    public Phone(Phone phone) {
+        this(phone.getNumber(), phone.getPhoneType(), phone.getDescription());
     }
 
     public Phone(String number, PhoneType phoneType, String description) {

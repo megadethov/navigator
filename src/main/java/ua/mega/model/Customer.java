@@ -1,11 +1,12 @@
 package ua.mega.model;
 
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name="Customer.getAll", query="select customer from Customer customer")
+        @NamedQuery(name = "Customer.getAll", query = "select customer from Customer customer join fetch customer.phone phone")
 })
 
 @Entity
@@ -18,11 +19,15 @@ public class Customer {
     private String patronymic;
     private String surname;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
     @JoinColumn(name = "phone_id")
     private Phone phone;
 
     public Customer() {
+    }
+
+    public Customer(Customer customer) {
+        this(customer.getName(), customer.getPatronymic(), customer.getSurname(), customer.getPhone());
     }
 
     public Customer(String name, String patronymic, String surname) {
@@ -32,9 +37,7 @@ public class Customer {
     }
 
     public Customer(String name, String patronymic, String surname, Phone phone) {
-        this.name = name;
-        this.patronymic = patronymic;
-        this.surname = surname;
+        this(name, patronymic, surname);
         this.phone = phone;
     }
 
