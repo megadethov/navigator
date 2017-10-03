@@ -6,11 +6,9 @@ import org.springframework.stereotype.Repository;
 import ua.mega.dao.CustomerDao;
 import ua.mega.dao.mock.CustomerDaoMockImpl;
 import ua.mega.model.Customer;
-import ua.mega.model.Phone;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 

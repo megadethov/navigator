@@ -2,7 +2,6 @@ package ua.mega.dao.mock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import ua.mega.dao.CustomerDao;
 import ua.mega.model.Customer;

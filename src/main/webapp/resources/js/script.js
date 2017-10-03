@@ -8,7 +8,7 @@ $(function () {
     let arr = [];
 
     $('.edit').keypress(function (e) {
-        if(e.which == 13) {
+        if (e.which == 13) {
             return false;
         }
     });
@@ -19,26 +19,25 @@ $(function () {
         field = $(this).data('name');
     }).blur(function () {
         newVal = $(this).text();
-        if(oldVal != newVal) {
+        if (oldVal != newVal) {
             let toPush = {"id": id, "field": field, "newVal": newVal};
             arr.push(toPush);
         }
     });
 
 
-
     $('#update').click(function () {
-        if(arr.length != 0) {
+        if (arr.length != 0) {
             $.ajax({
                 url: 'updateAgax',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(arr),
-                beforeSend: function(){
+                beforeSend: function () {
                     $('#loader').fadeIn();
                 },
                 success: function (res) {
-                    $('#mes-edit').text(res).delay(500).fadeIn(1000, function(){
+                    $('#mes-edit').text(res).delay(500).fadeIn(1000, function () {
                         $('#mes-edit').delay(1000).fadeOut();
                     });
                     arr = [];
@@ -46,7 +45,7 @@ $(function () {
                 error: function () {
                     alert('AJAX ERROR !');
                 },
-                complete: function(){
+                complete: function () {
                     $('#loader').delay(500).fadeOut();
                 }
             });

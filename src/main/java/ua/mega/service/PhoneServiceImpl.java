@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.mega.dao.PhoneDao;
-import ua.mega.model.Customer;
 import ua.mega.model.Phone;
-
-import java.util.List;
 
 @Service
 @Transactional

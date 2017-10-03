@@ -5,9 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import ua.mega.dao.mock.CustomerDaoMockImpl;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ua.mega.model.Customer;
 import ua.mega.model.Phone;
 import ua.mega.model.PhoneType;
@@ -36,6 +37,9 @@ public class CustomerController {
         return "view-all-customers";
     }
 
+    /**
+     * Not an optimal solution. It is necessary to optimize.
+     */
     @RequestMapping(value = "/updateAgax", method = RequestMethod.POST)
     public @ResponseBody
     String updateAjax(@RequestBody List<AjaxUpdateMapper> updates) {
@@ -49,7 +53,7 @@ public class CustomerController {
                     break;
                 case "phoneType":
                     String strPhoneType = next.getNewVal().toUpperCase();
-                    if(!strPhoneType.equals("HOME") && !strPhoneType.equals("MOBILE")) {
+                    if (!strPhoneType.equals("HOME") && !strPhoneType.equals("MOBILE")) {
                         strPhoneType = "UNDEFINED";
                     }
 

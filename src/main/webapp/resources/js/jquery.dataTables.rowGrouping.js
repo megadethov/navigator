@@ -1,44 +1,44 @@
 /*
-* File:        jquery.dataTables.grouping.js
-* Version:     1.1.6.
-* Author:      Jovan Popovic 
-* 
-* Copyright 2011 Jovan Popovic, all rights reserved.
-*
-* This source file is free software, under either the GPL v2 license or a
-* BSD style license, as supplied with this software.
-* 
-* This source file is distributed in the hope that it will be useful, but 
-* WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
-* or FITNESS FOR A PARTICULAR PURPOSE. 
-* Parameters:
-* @iGroupingColumnIndex                                 Integer             Index of the column that will be used for grouping - default 0
-* @sGroupingColumnSortDirection                         Enumeration         Sort direction of the group
-* @iGroupingOrderByColumnIndex                          Integer             Index of the column that will be used for ordering groups
-* @sGroupingClass                                       String              Class that will be associated to the group row. Default - "group"
-* @bSetGroupingClassOnTR                                Boolean             If set class will be set to the TR instead of the TD withing the grouping TR
-* @bHideGroupingColumn                                  Boolean             Hide column used for grouping once results are grouped. Default - true
-* @bHideGroupingOrderByColumn                           Boolean             Hide column used for ordering groups once results are grouped. Default - true
-* @sGroupBy                                             Enumeration         Type of grouping that should be applied. Values "name"(default), "letter", "year"
-* @sGroupLabelPrefix                                    String              Prefix that will be added to each group cell
-* @bExpandableGrouping                                  Boolean             Attach expand/collapse handlers to the grouping rows
-* @bExpandSingleGroup                                   Boolean             Use accordon grouping
-* @iExpandGroupOffset                                   Integer             Number of pixels to set scroll position above the currently selected group. If -1 scroll will be alligned to the table
-* General settings
-* @sDateFormat: "dd/MM/yyyy"                            String              Date format used for grouping
-* @sEmptyGroupLabel                                     String              Lable that will be placed as group if grouping cells are empty. Default "-"
+ * File:        jquery.dataTables.grouping.js
+ * Version:     1.1.6.
+ * Author:      Jovan Popovic 
+ * 
+ * Copyright 2011 Jovan Popovic, all rights reserved.
+ *
+ * This source file is free software, under either the GPL v2 license or a
+ * BSD style license, as supplied with this software.
+ * 
+ * This source file is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+ * or FITNESS FOR A PARTICULAR PURPOSE. 
+ * Parameters:
+ * @iGroupingColumnIndex                                 Integer             Index of the column that will be used for grouping - default 0
+ * @sGroupingColumnSortDirection                         Enumeration         Sort direction of the group
+ * @iGroupingOrderByColumnIndex                          Integer             Index of the column that will be used for ordering groups
+ * @sGroupingClass                                       String              Class that will be associated to the group row. Default - "group"
+ * @bSetGroupingClassOnTR                                Boolean             If set class will be set to the TR instead of the TD withing the grouping TR
+ * @bHideGroupingColumn                                  Boolean             Hide column used for grouping once results are grouped. Default - true
+ * @bHideGroupingOrderByColumn                           Boolean             Hide column used for ordering groups once results are grouped. Default - true
+ * @sGroupBy                                             Enumeration         Type of grouping that should be applied. Values "name"(default), "letter", "year"
+ * @sGroupLabelPrefix                                    String              Prefix that will be added to each group cell
+ * @bExpandableGrouping                                  Boolean             Attach expand/collapse handlers to the grouping rows
+ * @bExpandSingleGroup                                   Boolean             Use accordon grouping
+ * @iExpandGroupOffset                                   Integer             Number of pixels to set scroll position above the currently selected group. If -1 scroll will be alligned to the table
+ * General settings
+ * @sDateFormat: "dd/MM/yyyy"                            String              Date format used for grouping
+ * @sEmptyGroupLabel                                     String              Lable that will be placed as group if grouping cells are empty. Default "-"
 
-* Parameters used in the second level grouping
-* @iGroupingColumnIndex2                                Integer             Index of the secondary column that will be used for grouping - default 0
-* @sGroupingColumnSortDirection2                        Enumeration         Sort direction of the secondary group
-* @iGroupingOrderByColumnIndex2                         Integer             Index of the column that will be used for ordering secondary groups
-* @sGroupingClass2                                      String              Class that will be associated to the secondary group row. Default "subgroup"
-* @bHideGroupingColumn2                                 Boolean             Hide column used for secondary grouping once results are grouped. Default - true,
-* @bHideGroupingOrderByColumn2                          Boolean             Hide column used for ordering secondary groups once results are grouped. Default - true,
-* @sGroupBy2                                            Enumeration         Type of grouping that should be applied to secondary column. Values "name"(default), "letter", "year",
-* @sGroupLabelPrefix2                                   String              Prefix that will be added to each secondary group cell
-* @fnOnGrouped                                          Function            Function that is called when grouping is finished. Function has no parameters.
-*/
+ * Parameters used in the second level grouping
+ * @iGroupingColumnIndex2                                Integer             Index of the secondary column that will be used for grouping - default 0
+ * @sGroupingColumnSortDirection2                        Enumeration         Sort direction of the secondary group
+ * @iGroupingOrderByColumnIndex2                         Integer             Index of the column that will be used for ordering secondary groups
+ * @sGroupingClass2                                      String              Class that will be associated to the secondary group row. Default "subgroup"
+ * @bHideGroupingColumn2                                 Boolean             Hide column used for secondary grouping once results are grouped. Default - true,
+ * @bHideGroupingOrderByColumn2                          Boolean             Hide column used for ordering secondary groups once results are grouped. Default - true,
+ * @sGroupBy2                                            Enumeration         Type of grouping that should be applied to secondary column. Values "name"(default), "letter", "year",
+ * @sGroupLabelPrefix2                                   String              Prefix that will be added to each secondary group cell
+ * @fnOnGrouped                                          Function            Function that is called when grouping is finished. Function has no parameters.
+ */
 (function ($) {
 
     $.fn.rowGrouping = function (options) {
@@ -90,12 +90,15 @@
         return this.each(function (index, elem) {
 
             var oTable = $(elem).dataTable();
+
             function _fnIsGroupExpanded(sGroup) {
                 return ($.inArray(sGroup, asExpandedGroups) != -1);
             }
+
             function _fnGetYear(x) {
                 return x.substr(iYearIndex, iYearLength);
             }
+
             function _fnGetGroupByName(x) {
                 return x;
             }
@@ -242,17 +245,19 @@
 
             var fnGetGroup = _fnGetGroupByName;
             switch (properties.sGroupBy) {
-                case "letter": fnGetGroup = _fnGetGroupByLetter;
+                case "letter":
+                    fnGetGroup = _fnGetGroupByLetter;
                     break;
-                case "year": fnGetGroup = _fnGetGroupByYear;
+                case "year":
+                    fnGetGroup = _fnGetGroupByYear;
                     break;
-                case "month": fnGetGroup = _fnGetGroupByYearMonth;
+                case "month":
+                    fnGetGroup = _fnGetGroupByYearMonth;
                     break;
-                default: fnGetGroup = _fnGetGroupByName;
+                default:
+                    fnGetGroup = _fnGetGroupByName;
                     break;
             }
-
-
 
 
             var _fnDrawCallBackWithGrouping = function (oSettings) {
@@ -276,7 +281,7 @@
                 var sLastGroup2 = null;
                 for (var i = 0; i < nTrs.length; i++) {
 
-                    
+
                     var iDisplayIndex = oSettings._iDisplayStart + i;
                     if (oTable.fnSettings().oFeatures.bServerSide)
                         iDisplayIndex = i;
@@ -287,22 +292,22 @@
 
                     sGroupData = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[properties.iGroupingColumnIndex];
                     if (sGroupData == undefined)
-                        sGroupData = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[oSettings.aoColumns[properties.iGroupingColumnIndex].mDataProp ]; 
+                        sGroupData = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[oSettings.aoColumns[properties.iGroupingColumnIndex].mDataProp];
                     var sGroup = sGroupData;
                     if (properties.sGroupBy != "year")
                         sGroup = fnGetGroup(sGroupData);
 
-		    $(nTrs[i]).attr("data-group", _fnGetCleanedGroup(sGroup));
+                    $(nTrs[i]).attr("data-group", _fnGetCleanedGroup(sGroup));
                     if (bUseSecondaryGrouping) {
                         sGroupData2 = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[properties.iGroupingColumnIndex2];
                         if (sGroupData2 == undefined)
-                            sGroupData2 = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[oSettings.aoColumns[properties.iGroupingColumnIndex2].mDataProp]; 
+                            sGroupData2 = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[oSettings.aoColumns[properties.iGroupingColumnIndex2].mDataProp];
                         if (properties.sGroupBy2 != "year")
                             sGroup2 = fnGetGroup(sGroupData2);
-			$(nTrs[i]).attr("data-group", _fnGetCleanedGroup(sGroup)+'_'+_fnGetCleanedGroup(sGroup2));
+                        $(nTrs[i]).attr("data-group", _fnGetCleanedGroup(sGroup) + '_' + _fnGetCleanedGroup(sGroup2));
                     }
 
-                    
+
                     if (sLastGroup == null || _fnGetCleanedGroup(sGroup) != _fnGetCleanedGroup(sLastGroup)) {
                         var sGroupCleaned = _fnGetCleanedGroup(sGroup);
 
@@ -345,18 +350,9 @@
 
 
                             $(nCell).click(_fnOnGroupClick);
-                    
-
-
-
-
 
 
                             ///***********
-
-
-
-
 
 
                         }
@@ -364,9 +360,6 @@
                         nTrs[i].parentNode.insertBefore(nGroup, nTrs[i]);
                         sLastGroup = sGroup;
                         sLastGroup2 = null; //to reset second level grouping
-
-
-
 
 
                     } // end if (sLastGroup == null || sGroup != sLastGroup)
@@ -403,7 +396,6 @@
                     } //end if (bUseSecondaryGrouping)
 
 
-
                 } // end for (var i = 0; i < nTrs.length; i++)
 
 
@@ -412,8 +404,6 @@
 
                 bInitialGrouping = false;
             };
-
-
 
 
             oTable.fnSetColumnVis(properties.iGroupingColumnIndex, !properties.bHideGroupingColumn);
@@ -476,8 +466,6 @@
                     }
 
 
-
-
                     break;
                 default:
                     break;
@@ -491,9 +479,6 @@
             }
 
             oTable.fnDraw();
-
-
-
 
 
         });

@@ -3,14 +3,12 @@ package ua.mega.dao.jpa;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import ua.mega.dao.CustomerDao;
 import ua.mega.dao.PhoneDao;
 import ua.mega.dao.mock.CustomerDaoMockImpl;
-import ua.mega.model.Customer;
 import ua.mega.model.Phone;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Repository
 
