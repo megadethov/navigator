@@ -36,6 +36,9 @@ public class CustomerController {
         return "view-all-customers";
     }
 
+    /**
+     * Not an optimal solution. It is necessary to optimize.
+     */
     @RequestMapping(value = "/updateAgax", method = RequestMethod.POST)
     public @ResponseBody
     String updateAjax(@RequestBody List<AjaxUpdateMapper> updates) {

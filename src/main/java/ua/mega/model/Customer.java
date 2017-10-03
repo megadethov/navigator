@@ -1,8 +1,5 @@
 package ua.mega.model;
 
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 
 @NamedQueries({
